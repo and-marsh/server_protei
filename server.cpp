@@ -94,7 +94,7 @@ int main()
             {
                 length_msg = strlen(msg) + 1;               //длина строки + '\0'
                 cout<<"Байт получено: "<<length_msg<<endl;
-                cout<<"Сообщение: "<<msg<<endl<<endl;
+                cout<<"Сообщение: "<<msg<<endl;
                 dyn_msg = new char[length_msg];             //выделяем память
                 strcpy(dyn_msg,msg);                        //формируем сообщение
                 if(sendto(udp_sock, dyn_msg, length_msg, 0, ( struct sockaddr* )&client_sin, sizeof( struct sockaddr_in )) < 0)	//отсылаем клиенту ответ
