@@ -189,14 +189,19 @@ void messageProcessing(const char* msg, vector<int>& numbers)
             numbers.push_back(msg[i] - '0');
         }
     }
-    sort(numbers.begin(),numbers.end(),comp);
-    cout<<"Числа в порядке убывания:"<<endl;
-    for(unsigned int i=0; i<numbers.size();i++)
+    if(!numbers.empty())
     {
-        sum+=numbers[i];
-        cout<<numbers[i]<<" ";
+        sort(numbers.begin(),numbers.end(),comp);
+        cout<<"Числа в порядке убывания:"<<endl;
+        for(unsigned int i=0; i<numbers.size();i++)
+        {
+            sum+=numbers[i];
+            cout<<numbers[i]<<" ";
+        }
+        cout<<"\nСумма чисел: "<<sum<<endl;
+        cout<<"Минимальное число: "<<numbers.back()<<endl;
+        cout<<"Максимальное число: "<<numbers.front()<<endl<<endl;
     }
-    cout<<"\nСумма чисел: "<<sum<<endl;
-    cout<<"Минимальное число: "<<numbers.back()<<endl;
-    cout<<"Максимальное число: "<<numbers.front()<<endl<<endl;
+    else
+        cout<<"Чисел в сообщении нет"<<endl<<endl;
 }
